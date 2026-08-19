@@ -5,18 +5,41 @@ const out = path.resolve('assets/demos');
 fs.mkdirSync(out, { recursive: true });
 
 const esc = (s) => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-const font = "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+let font = "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 const mono = "'SFMono-Regular', Consolas, monospace";
-const c = {
-  bg: '#071019', shell: '#0B1622', sidebar: '#0A1320', card: '#101D2A', card2: '#0D1925',
-  line: '#223243', text: '#F5F8FA', muted: '#8FA2B5', soft: '#C3CFD9', green: '#34D399',
-  amber: '#FBBF24', red: '#FB7185', blue: '#60A5FA', purple: '#A78BFA', cyan: '#22D3EE'
+let c;
+let ui;
+
+const themes = {
+  payment: {
+    font: "Poppins, Inter, ui-sans-serif, sans-serif", ui: { cardR: 16, controlR: 10 },
+    colors: { bg:'#EAF0F7', shell:'#F5F8FA', sidebar:'#FFFFFF', card:'#FFFFFF', card2:'#F9FAFB', track:'#E9ECEF', line:'#E2E8F0', text:'#1E293B', muted:'#64748B', soft:'#334155', green:'#198754', amber:'#D97706', red:'#DC3545', blue:'#0D6EFD', purple:'#4F46E5', cyan:'#0DCAF0' }
+  },
+  balance: {
+    font: "Inter, ui-sans-serif, sans-serif", ui: { cardR: 14, controlR: 7 },
+    colors: { bg:'#EDE9E1', shell:'#F8F6F1', sidebar:'#F2EFE8', card:'#FEFDFC', card2:'#F5F2EC', track:'#E8E3D9', line:'#DDD8CD', text:'#29251F', muted:'#756F66', soft:'#423D36', green:'#34855F', amber:'#C37518', red:'#C84F3F', blue:'#3866D5', purple:'#7556C8', cyan:'#237F91' }
+  },
+  rawabet: {
+    font: "Inter, ui-sans-serif, sans-serif", ui: { cardR: 10, controlR: 6 },
+    colors: { bg:'#E9EDF2', shell:'#F6F7F9', sidebar:'#FFFFFF', card:'#FFFFFF', card2:'#F0F2F5', track:'#E8EBEF', line:'#E2E6EC', text:'#141B26', muted:'#616B79', soft:'#4E5A6B', green:'#178A5B', amber:'#B45309', red:'#D6403A', blue:'#2E5FE8', purple:'#7357C8', cyan:'#17869B' }
+  },
+  whatsapp: {
+    font: "Inter, ui-sans-serif, sans-serif", ui: { cardR: 18, controlR: 12 },
+    colors: { bg:'#07101F', shell:'#0F172A', sidebar:'#111C30', card:'#1E293B', card2:'#162236', track:'#334155', line:'#334155', text:'#F8FAFC', muted:'#94A3B8', soft:'#CBD5E1', green:'#22C55E', amber:'#F59E0B', red:'#EF4444', blue:'#3B82F6', purple:'#8B5CF6', cyan:'#22D3EE' }
+  }
 };
 
-const payment = { slug: 'payment', brand: 'Payment Management', accent: '#8B5CF6', accent2: '#C4B5FD', mark: 'PM', nav: ['Command center', 'Requests', 'Invoices', 'Beneficiaries', 'ERP connections', 'Reports'] };
-const balance = { slug: 'anlik-bakiyem', brand: 'Anlık Bakiyem', accent: '#06B6D4', accent2: '#67E8F9', mark: 'AB', nav: ['Overview', 'Balances', 'Transactions', 'Reconciliation', 'Accounts', 'Integrations'] };
-const rawabet = { slug: 'rawabet', brand: 'Rawabet', accent: '#F97316', accent2: '#FDBA74', mark: 'RA', nav: ['Operations', 'Orders', 'Live fleet', 'Accounting', 'Partners', 'System'] };
-const whatsapp = { slug: 'whatsapp-bot', brand: 'WhatsApp Bot', accent: '#22C55E', accent2: '#86EFAC', mark: 'WA', nav: ['Sessions', 'Groups', 'Outbound', 'System logs', 'API management', 'Security'] };
+const payment = { theme:'payment', slug:'payment', brand:'Payment Management', accent:'#0D6EFD', accent2:'#4F46E5', mark:'PM', nav:['Dashboard','Requests','Invoices','Beneficiaries','Odoo / QuickBooks','Reports'] };
+const balance = { theme:'balance', slug:'anlik-bakiyem', brand:'Anlık Bakiyem', accent:'#3866D5', accent2:'#7BA2F7', mark:'AB', nav:['Overview','Balances','Transactions','Reconciliation','Accounts','Integrations'] };
+const rawabet = { theme:'rawabet', slug:'rawabet', brand:'Rawabet', accent:'#2E5FE8', accent2:'#85AAFF', mark:'RA', nav:['Dashboard','Orders','Live fleet','Accounting','Partners','System'] };
+const whatsapp = { theme:'whatsapp', slug:'whatsapp-bot', brand:'WA Bot Admin', accent:'#22C55E', accent2:'#8B5CF6', mark:'WA', nav:['Dashboard','Groups','Outbound','System logs','API Management','Security'] };
+
+function activate(project) {
+  const theme = themes[project.theme];
+  c = theme.colors;
+  ui = theme.ui;
+  font = theme.font;
+}
 
 function t(x, y, value, size = 20, fill = c.text, weight = 500, anchor = 'start', family = font) {
   return `<text x="${x}" y="${y}" fill="${fill}" font-family="${family}" font-size="${size}" font-weight="${weight}" text-anchor="${anchor}">${esc(value)}</text>`;
@@ -30,13 +53,13 @@ function line(x1, y1, x2, y2, stroke = c.line, sw = 1, dash = '') {
 function circle(x, y, r, fill, stroke = 'none') { return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}"/>`; }
 function pill(x, y, label, fill, color = c.text, width) {
   const w = width || Math.max(72, label.length * 8.1 + 26);
-  return rect(x, y, w, 30, fill, 15) + t(x + w / 2, y + 20, label, 12, color, 700, 'middle');
+  return rect(x, y, w, 30, fill, ui.controlR) + t(x + w / 2, y + 20, label, 12, color, 700, 'middle');
 }
 function iconBox(x, y, glyph, accent) {
-  return rect(x, y, 42, 42, `${accent}22`, 12, `${accent}55`) + t(x + 21, y + 27, glyph, 14, accent, 800, 'middle');
+  return rect(x, y, 42, 42, `${accent}22`, ui.controlR, `${accent}55`) + t(x + 21, y + 27, glyph, 14, accent, 800, 'middle');
 }
 function metric(x, y, w, label, value, delta, accent) {
-  return rect(x, y, w, 122, c.card, 18, c.line) +
+  return rect(x, y, w, 122, c.card, ui.cardR, c.line) +
     t(x + 22, y + 30, label.toUpperCase(), 11, c.muted, 750) +
     t(x + 22, y + 72, value, 29, c.text, 750) +
     pill(x + 22, y + 84, delta, `${accent}20`, accent);
@@ -56,44 +79,92 @@ function row(y, cols, widths, x = 368, h = 54, fills = []) {
 }
 function bar(x, y, w, pct, accent, label, value) {
   return t(x, y, label, 12, c.soft, 600) + t(x + w, y, value, 12, c.text, 700, 'end') +
-    rect(x, y + 12, w, 8, '#1B2A38', 4) + rect(x, y + 12, w * pct, 8, accent, 4);
+    rect(x, y + 12, w, 8, c.track, 4) + rect(x, y + 12, w * pct, 8, accent, 4);
 }
 
-function shell(project, title, subtitle, active, body, opts = {}) {
-  const nav = project.nav.map((n, i) => {
-    const y = 220 + i * 58;
-    const on = i === active;
-    return (on ? rect(34, y - 29, 228, 44, `${project.accent}18`, 12, `${project.accent}44`) : '') +
-      circle(56, y - 7, 4, on ? project.accent : '#526577') + t(76, y - 2, n, 14, on ? c.text : c.muted, on ? 680 : 520);
-  }).join('');
+function frame(project, content, note) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081521"/><stop offset="1" stop-color="#050B12"/></linearGradient>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${project.accent}"/><stop offset="1" stop-color="${project.accent2}"/></linearGradient>
-  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#000" flood-opacity=".35"/></filter>
+  <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${project.accent}"/><stop offset="1" stop-color="${project.accent2}"/></linearGradient>
+  <filter id="softShadow"><feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#172033" flood-opacity=".14"/></filter>
 </defs>
-<rect width="1600" height="900" fill="url(#bg)"/>
-<circle cx="1450" cy="60" r="290" fill="${project.accent}" opacity=".06"/>
-<rect x="24" y="24" width="1552" height="852" rx="28" fill="${c.shell}" stroke="${c.line}" filter="url(#shadow)"/>
-<rect x="24" y="24" width="1552" height="58" rx="28" fill="#0D1925"/>
-<rect x="24" y="56" width="1552" height="26" fill="#0D1925"/>
-${circle(54,53,6,'#FB7185')}${circle(76,53,6,'#FBBF24')}${circle(98,53,6,'#34D399')}
-${rect(648,39,328,28,'#08121C',8)}${t(812,58,`${project.slug}.product / demo`,11,c.muted,500,'middle',mono)}
-<rect x="24" y="82" width="280" height="794" fill="${c.sidebar}"/>
-${rect(42,112,46,46,'url(#accent)',14)}${t(65,142,project.mark,14,'#071019',850,'middle')}
-${t(102,134,project.brand,18,c.text,760)}${t(102,153,'PRODUCT SYSTEM',10,c.muted,700)}
-${line(42,184,266,184,c.line)}${nav}
-${rect(42,772,224,72,'#0E1C29',14,c.line)}${circle(68,807,15,`${project.accent}33`)}${t(68,812,'SN',10,project.accent,800,'middle')}${t(94,803,'Muhammed Said',12,c.soft,650)}${t(94,822,'Product Engineer',10,c.muted,500)}
-${t(344,126,title,28,c.text,760)}${t(344,151,subtitle,13,c.muted,500)}
-${pill(1370,112,'UI CONCEPT',`${project.accent}1F`,project.accent,134)}
-${body}
-${t(1488,846,opts.note || 'Concept interface · sample data · based on implemented product architecture',10,'#64788B',500,'end')}
+<rect width="1600" height="900" fill="${c.bg}"/>
+${content}
+${t(1548,878,note || 'UI concept · fictional sample data · source-informed design',9,c.muted,500,'end')}
 </svg>`;
 }
 
+function paymentShell(project, title, subtitle, active, body, opts) {
+  const nav = project.nav.map((n,i)=>t(520+i*148,70,n,12,i===active?project.accent:c.muted,i===active?700:550,'middle')).join('');
+  const content = `${rect(20,20,1560,860,c.shell,20,c.line)}
+${rect(20,20,1560,82,c.sidebar,20,c.line)}${rect(20,82,1560,20,c.sidebar,0)}
+${rect(52,40,42,42,'url(#brand)',10)}${t(73,67,'PM',13,'#FFFFFF',800,'middle')}
+${t(108,59,'Payment',17,project.accent,750)}${t(108,80,'Management',17,c.text,750)}${nav}
+${circle(1480,60,18,`${project.accent}18`)}${t(1480,65,'SN',10,project.accent,800,'middle')}${t(1510,65,'Admin',11,c.soft,600)}
+${t(210,150,title,27,c.text,720)}${t(210,177,subtitle,13,c.muted,500)}${pill(1370,132,'CONCEPT',`${project.accent}14`,project.accent,112)}
+<g transform="translate(-134 42)">${body}</g>`;
+  return frame(project,content,opts.note);
+}
+
+function balanceShell(project, title, subtitle, active, body, opts) {
+  const nav = project.nav.map((n,i)=>{const y=174+i*50,on=i===active;return (on?rect(44,y-25,216,38,`${project.accent}12`,7):'')+t(64,y,n,13,on?project.accent:c.muted,on?680:550)+circle(240,y-5,4,on?project.accent:c.line);}).join('');
+  const content = `${rect(20,20,1560,860,c.shell,16,c.line)}${rect(20,20,268,860,c.sidebar,16,c.line)}${rect(268,20,20,860,c.sidebar,0)}
+${rect(44,48,40,40,'url(#brand)',9)}${t(64,74,'AB',12,'#FFFFFF',800,'middle')}${t(98,67,'Anlık Bakiyem',17,c.text,730)}${t(98,85,'FİNANS PANOSU',9,c.muted,750)}${line(44,112,260,112,c.line)}${nav}
+${t(324,76,title,27,c.text,730)}${t(324,103,subtitle,13,c.muted,500)}${pill(1406,54,'ÖRNEK VERİ',`${project.accent}12`,project.accent,126)}
+${rect(44,786,216,62,c.card,10,c.line)}${circle(68,817,14,`${project.accent}18`)}${t(68,821,'SN',9,project.accent,800,'middle')}${t(92,812,'Muhammed Said',11,c.text,650)}${t(92,830,'Hazine yöneticisi',9,c.muted,500)}
+${body}`;
+  return frame(project,content,opts.note);
+}
+
+function rawabetShell(project, title, subtitle, active, body, opts) {
+  const groupAt = {0:'WORKSPACE',1:'OPERATIONS',2:'FLEET',3:'ACCOUNTING',4:'USERS',5:'SYSTEM'};
+  const nav = project.nav.map((n,i)=>{const y=170+i*82,on=i===active;return t(48,y-20,groupAt[i],9,c.muted,750)+ (on?rect(42,y-6,202,36,`${project.accent}12`,6):'') + rect(54,y+5,18,18,on?project.accent:c.card2,5,on?project.accent:c.line)+t(84,y+19,n,12,on?c.text:c.soft,on?680:550);}).join('');
+  const content = `${rect(20,20,1560,860,c.shell,12,c.line)}${rect(20,20,252,860,c.sidebar,12,c.line)}${rect(252,20,20,860,c.sidebar,0)}
+${rect(42,42,34,34,c.text,7)}${t(59,64,'R',13,c.sidebar,850,'middle')}${t(88,64,'RAWABET',15,c.text,780)}${line(42,96,244,96,c.line)}${nav}
+${rect(272,20,1308,48,c.card,0,c.line)}${rect(296,30,246,28,c.shell,6,c.line)}${t(314,49,'⌕  Search orders, drivers…',11,c.muted,500)}${pill(1390,29,'EN / AR',c.card2,c.muted,78)}${circle(1500,44,14,c.card2)}${t(1500,48,'A',9,c.text,750,'middle')}${t(1522,48,'Admin',10,c.soft,600)}
+${t(312,112,title,25,c.text,720)}${t(312,137,subtitle,12,c.muted,500)}${pill(1420,92,'CONCEPT',`${project.accent}12`,project.accent,102)}
+${body}`;
+  return frame(project,content,opts.note);
+}
+
+function whatsappShell(project, title, subtitle, active, body, opts) {
+  const nav = project.nav.map((n,i)=>{const y=176+i*54,on=i===active;return (on?rect(42,y-27,220,42,`${project.accent}14`,12):'')+circle(60,y-6,4,on?project.accent:c.muted)+t(78,y-1,n,13,on?c.text:c.muted,on?680:550);}).join('');
+  const content = `${rect(20,20,1560,860,c.shell,24,c.line,'1')}<circle cx="1420" cy="80" r="220" fill="${project.accent}" opacity=".035"/>
+${rect(20,20,274,860,c.sidebar,24,c.line)}${rect(274,20,20,860,c.sidebar,0)}
+${rect(42,48,42,42,'url(#brand)',12)}${t(63,75,'WA',12,'#06120A',850,'middle')}${t(98,65,'WA Bot Admin',17,c.text,760)}${t(98,84,'v1.0.0 · Enterprise',9,c.muted,650)}${line(42,112,264,112,c.line)}${nav}
+${t(334,80,title,29,c.text,760)}${t(334,108,subtitle,13,c.muted,500)}${pill(1400,58,'LIVE CONCEPT',`${project.accent}18`,project.accent,134)}
+${rect(42,792,220,56,c.card2,12,c.line)}${circle(66,820,14,`${project.accent}18`)}${t(66,824,'A',9,project.accent,800,'middle')}${t(90,816,'admin',11,c.soft,650)}${t(90,833,'Secure session',9,c.muted,500)}
+${body}`;
+  return frame(project,content,opts.note);
+}
+
+function retone(body) {
+  return body
+    .replaceAll('#162635', c.track)
+    .replaceAll('#132331', c.card2)
+    .replaceAll('#1B2A38', c.track)
+    .replaceAll('#445569', c.muted)
+    .replaceAll('#415365', c.muted)
+    .replaceAll('#2B1620', `${c.red}14`)
+    .replaceAll('#0B1C29', c.card2)
+    .replaceAll('#0A1722', c.card2)
+    .replaceAll('#091720', c.card2)
+    .replaceAll('#284156', c.line)
+    .replaceAll('#233D4D', c.line)
+    .replaceAll('#1B3140', c.track);
+}
+
+function shell(project, title, subtitle, active, body, opts = {}) {
+  body = retone(body);
+  if (project.theme === 'payment') return paymentShell(project,title,subtitle,active,body,opts);
+  if (project.theme === 'balance') return balanceShell(project,title,subtitle,active,body,opts);
+  if (project.theme === 'rawabet') return rawabetShell(project,title,subtitle,active,body,opts);
+  return whatsappShell(project,title,subtitle,active,body,opts);
+}
+
 function paymentCommand() {
-  const p = payment;
+  const p = payment; activate(p);
   let b = metric(344,184,258,'Open requests','128','12 urgent',p.accent) + metric(620,184,258,'Awaiting approval','34','3 stages',p.accent) + metric(896,184,258,'Ready for ERP','21','Odoo + QB',p.accent) + metric(1172,184,332,'Today processed','AED 418K','sample value',p.accent);
   b += rect(344,328,778,470,c.card,18,c.line) + sectionTitle(368,362,'Payment request control room','Ownership, stage and risk in one operational queue');
   b += pill(932,344,'All requests','#162635',c.soft,106)+pill(1046,344,'Urgent',`${c.red}22`,c.red,78);
@@ -109,7 +180,7 @@ function paymentCommand() {
 }
 
 function paymentWorkflow() {
-  const p = payment; let b='';
+  const p = payment; activate(p); let b='';
   b += rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'Request PM-2048','A decision-ready workspace with every financial and operational dependency');
   b += pill(1264,202,'FINANCE REVIEW',`${p.accent}22`,p.accent,202);
   const stages=[['01','Submitted',c.green],['02','Validated',c.green],['03','Finance review',p.accent],['04','CFO approval','#445569'],['05','ERP posting','#445569']];
@@ -126,7 +197,7 @@ function paymentWorkflow() {
 }
 
 function paymentErp() {
-  const p=payment;let b='';
+  const p=payment;activate(p);let b='';
   b+=rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'ERP reconciliation studio','Normalize bank and accounting records before posting');
   b+=pill(1260,202,'21 READY TO POST',`${c.green}20`,c.green,206);
   const nodes=[['PAYMENT REQUEST','Validated'],['MATCHING ENGINE','Account + party'],['ODOO / QUICKBOOKS','Posting target'],['AUDIT LOG','Traceable result']];
@@ -143,7 +214,7 @@ function paymentErp() {
 }
 
 function paymentInsights() {
-  const p=payment;let b='';
+  const p=payment;activate(p);let b='';
   b+=metric(344,184,272,'Completed','316','selected period',p.accent)+metric(634,184,272,'Approval time','1.8 days','median',p.accent)+metric(924,184,272,'Exceptions','14','needs review',p.accent)+metric(1214,184,290,'Automation','72%','classified',p.accent);
   b+=rect(344,328,738,470,c.card,18,c.line)+sectionTitle(370,364,'Payment volume & cycle time','Decision support without exposing transaction-level data');
   const vals=[.34,.48,.44,.65,.56,.72,.69,.83,.77,.91,.74,.88]; vals.forEach((v,i)=>{const x=386+i*53;b+=rect(x,712-v*270,24,v*270,`${p.accent}${i>8?'CC':'66'}`,6)});
@@ -155,7 +226,7 @@ function paymentInsights() {
 }
 
 function balanceOverview() {
-  const p=balance;let b='';
+  const p=balance;activate(p);let b='';
   b+=metric(344,184,270,'Consolidated balance','₺ 24.8M','sample total',p.accent)+metric(632,184,270,'Connected accounts','18','6 banks',p.accent)+metric(920,184,270,'Fresh data','16 / 18','2 sync pending',p.accent)+metric(1208,184,296,'Currencies','TRY · USD · EUR','normalized',p.accent);
   b+=rect(344,328,760,470,c.card,18,c.line)+sectionTitle(370,364,'Liquidity by company','A current, permission-aware treasury view');
   const cos=[['Northstar Group','₺ 11.4M',.82],['Atlas Operations','₺ 7.9M',.61],['Vertex Services','₺ 4.2M',.42],['Orbit Labs','₺ 1.3M',.18]];
@@ -167,7 +238,7 @@ function balanceOverview() {
 }
 
 function balanceReconcile() {
-  const p=balance;let b='';
+  const p=balance;activate(p);let b='';
   b+=rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'Reconciliation workspace','Keyboard-first review across bank and accounting records');
   b+=pill(1228,202,'18 SELECTED',`${p.accent}20`,p.accent,146)+pill(1386,202,'ERP READY',`${c.green}20`,c.green,100);
   b+=rect(372,260,754,466,c.card2,16,c.line)+t(396,294,'DATE',10,c.muted,750)+t(502,294,'DESCRIPTION',10,c.muted,750)+t(770,294,'AMOUNT',10,c.muted,750)+t(916,294,'AI INTENT',10,c.muted,750)+t(1050,294,'STATE',10,c.muted,750);
@@ -180,7 +251,7 @@ function balanceReconcile() {
 }
 
 function balanceIntegrations() {
-  const p=balance;let b='';
+  const p=balance;activate(p);let b='';
   b+=rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'Integration hub','Controlled connectivity across banks, ERP and accounting systems');
   const cards=[['BANK CONNECTORS','6 active','Secure credential vault','Balance + transaction sync',p.accent],['ODOO','Connected','Company-aware mapping','Journal posting target',c.purple],['QUICKBOOKS','Connected','Chart + entity matching','Reconciliation radar',c.blue],['AI / MCP','Read-only','Scoped financial context','Human-approved actions',c.green]];
   cards.forEach((x,i)=>{const xx=372+(i%2)*554, yy=270+Math.floor(i/2)*220;b+=rect(xx,yy,526,194,c.card2,16,c.line)+iconBox(xx+24,yy+24,i===0?'BK':i===1?'OD':i===2?'QB':'AI',x[4])+t(xx+82,yy+48,x[0],11,c.muted,760)+pill(xx+380,yy+24,x[1],`${x[4]}20`,x[4],116)+t(xx+24,yy+104,x[2],15,c.soft,680)+t(xx+24,yy+130,x[3],12,c.muted,520)+line(xx+24,yy+152,xx+502,yy+152,c.line)+circle(xx+28,yy+174,4,c.green)+t(xx+42,yy+178,'Health checks passing',11,c.green,620)});
@@ -189,7 +260,7 @@ function balanceIntegrations() {
 }
 
 function balanceGovernance() {
-  const p=balance;let b='';
+  const p=balance;activate(p);let b='';
   b+=rect(344,184,700,614,c.card,18,c.line)+sectionTitle(372,222,'Access control','Capability + scope determines every visible action');
   b+=t(372,270,'ROLE',10,c.muted,750)+t(584,270,'BALANCES',10,c.muted,750)+t(706,270,'TRANSACTIONS',10,c.muted,750)+t(856,270,'INTEGRATIONS',10,c.muted,750);
   [['Treasury admin','Full','Full','Manage'],['Finance analyst','Scoped','Scoped','View'],['Auditor','View','View','None'],['Company viewer','Company','None','None']].forEach((x,i)=>{const y=286+i*70;b+=row(y,x,[212,122,150,150],358,70,[c.soft,p.accent2,p.accent2,i===0?c.green:c.muted])});
@@ -201,7 +272,7 @@ function balanceGovernance() {
 }
 
 function rawabetOps() {
-  const p=rawabet;let b='';
+  const p=rawabet;activate(p);let b='';
   b+=metric(344,184,270,'Active orders','84','12 in transit',p.accent)+metric(632,184,270,'Available drivers','31','6 vendors',p.accent)+metric(920,184,270,'On-time delivery','94%','sample KPI',p.accent)+metric(1208,184,296,'Open exceptions','7','needs action',p.accent);
   b+=rect(344,328,746,470,c.card,18,c.line)+sectionTitle(370,364,'Operations command center','Orders, fleet and service risk in a single view');
   b+=rect(370,408,694,180,'#0A1722',14,c.line)+line(392,548,1018,438,'#284156',10)+line(548,520,716,456,p.accent,5)+circle(548,520,10,p.accent)+circle(716,456,10,p.accent)+circle(918,482,9,c.green)+pill(388,426,'TRIPOLI','#132331',c.soft,90)+pill(900,514,'MISRATA','#132331',c.soft,94)+t(386,576,'Live fleet map · route progress · driver state',11,c.muted,600);
@@ -212,7 +283,7 @@ function rawabetOps() {
 }
 
 function rawabetOrder() {
-  const p=rawabet;let b='';
+  const p=rawabet;activate(p);let b='';
   b+=rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'Order RB-8421','One lifecycle shared by customer, operator and driver');
   b+=pill(1280,202,'IN TRANSIT',`${c.blue}20`,c.blue,132)+pill(1422,202,'LIVE',`${c.green}20`,c.green,64);
   b+=rect(372,270,712,296,c.card2,16,c.line)+sectionTitle(398,306,'Route & execution','Tripoli → Misrata · medium truck · assigned vendor');
@@ -225,7 +296,7 @@ function rawabetOrder() {
 }
 
 function rawabetFleet() {
-  const p=rawabet;let b='';
+  const p=rawabet;activate(p);let b='';
   b+=rect(344,184,780,614,c.card,18,c.line)+sectionTitle(372,222,'Live fleet map','Driver location, route progress and assignment context');
   b+=rect(372,260,724,510,'#091720',14,c.line);
   const roads=[[390,650,1040,330],[410,350,1020,710],[520,270,630,752],[780,270,920,752]]; roads.forEach((r,i)=>b+=line(...r,i===0?'#233D4D':'#1B3140',i===0?16:9));
@@ -238,7 +309,7 @@ function rawabetFleet() {
 }
 
 function rawabetAccounting() {
-  const p=rawabet;let b='';
+  const p=rawabet;activate(p);let b='';
   b+=metric(344,184,270,'Customer invoices','LYD 418K','selected period',p.accent)+metric(632,184,270,'Supplier bills','LYD 276K','selected period',p.accent)+metric(920,184,270,'Collected','72%','sample KPI',p.accent)+metric(1208,184,296,'Open documents','46','invoice + bill',p.accent);
   b+=rect(344,328,712,470,c.card,18,c.line)+sectionTitle(370,364,'Accounting documents','Operational events become traceable financial records');
   b+=t(370,408,'DOCUMENT',10,c.muted,750)+t(536,408,'PARTY',10,c.muted,750)+t(754,408,'AMOUNT',10,c.muted,750)+t(908,408,'STATE',10,c.muted,750);
@@ -249,7 +320,7 @@ function rawabetAccounting() {
 }
 
 function waSessions() {
-  const p=whatsapp;let b='';
+  const p=whatsapp;activate(p);let b='';
   b+=metric(344,184,270,'Sessions','6','5 ready',p.accent)+metric(632,184,270,'Messages today','12,480','sample load',p.accent)+metric(920,184,270,'Delivery health','99.4%','sample KPI',p.accent)+metric(1208,184,296,'Recovery queue','3','attention needed',p.accent);
   b+=rect(344,328,1160,470,c.card,18,c.line)+sectionTitle(370,364,'Session command center','Operate multiple WhatsApp identities independently');
   const ss=[['Operations TR','+90 ••• ••• 0184','READY','Webhook active',c.green],['Logistics AR','+218 •• ••• 4201','READY','Webhook active',c.green],['Finance Alerts','+90 ••• ••• 7732','STARTING','QR required',c.blue],['Support Line','+218 •• ••• 9940','FAILED','Recovery check',c.red]];
@@ -258,7 +329,7 @@ function waSessions() {
 }
 
 function waOutbound() {
-  const p=whatsapp;let b='';
+  const p=whatsapp;activate(p);let b='';
   b+=rect(344,184,1160,614,c.card,18,c.line)+sectionTitle(372,222,'Outbound reliability monitor','Trace every attempt and recover retained messages safely');
   b+=pill(1244,202,'AUTO REFRESH',`${p.accent}20`,p.accent,136)+pill(1390,202,'CLEAR FILTERS','#162635',c.soft,96);
   b+=rect(372,264,1104,224,c.card2,16,c.line)+sectionTitle(398,300,'Failed outbound queue','Retry state, retained payload and last error');
@@ -272,7 +343,7 @@ function waOutbound() {
 }
 
 function waApi() {
-  const p=whatsapp;let b='';
+  const p=whatsapp;activate(p);let b='';
   b+=metric(344,184,270,'Active API keys','8','2 scoped',p.accent)+metric(632,184,270,'Requests / 24h','34.2K','sample volume',p.accent)+metric(920,184,270,'Denied','42','policy enforced',p.accent)+metric(1208,184,296,'Allowed sessions','6','assignment ready',p.accent);
   b+=rect(344,328,730,470,c.card,18,c.line)+sectionTitle(370,364,'API access registry','Keys, permissions and operational status');
   b+=t(370,408,'CLIENT',10,c.muted,750)+t(570,408,'SCOPE',10,c.muted,750)+t(770,408,'SESSIONS',10,c.muted,750)+t(928,408,'STATUS',10,c.muted,750);
@@ -283,7 +354,7 @@ function waApi() {
 }
 
 function waSecurity() {
-  const p=whatsapp;let b='';
+  const p=whatsapp;activate(p);let b='';
   b+=rect(344,184,568,614,c.card,18,c.line)+sectionTitle(372,222,'Network allowlists','Separate dashboard and API trust boundaries');
   b+=rect(372,266,512,210,c.card2,16,c.line)+iconBox(396,290,'UI',p.accent)+t(452,312,'Dashboard IPs',15,c.soft,700)+pill(746,294,'3 ALLOWED',`${c.green}20`,c.green,114);
   [['203.0.113.18','Office'],['198.51.100.44','VPN']].forEach((x,i)=>{const y=362+i*50;b+=t(396,y,x[0],12,c.soft,600,'start',mono)+t(652,y,x[1],11,c.muted,550)+pill(780,y-20,'REMOVE','#2B1620',c.red,82)});
