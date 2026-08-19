@@ -6,29 +6,29 @@ A standalone, multi-session WhatsApp automation and delivery platform with its o
 
 **This is an independent product.** Rawabet can call it through an API, but the bot is not a module inside Rawabet and is designed to serve multiple clients and workflows.
 
-> The interfaces below are original portfolio concepts based on the standalone repository’s dashboard, runtime services, data models, middleware, and queue behavior. All sessions, keys, phone fragments, IP addresses, groups, and message volumes are fictional sample data.
+> The interfaces below are safe demo renders built from the standalone product's implemented dashboard design system and page structures. All sessions, keys, phone fragments, IP addresses, groups, and message volumes are fictional sample data.
 
 ## 01 — Session command center
 
-<img src="../assets/demos/whatsapp-01-sessions.svg" alt="WhatsApp Bot session command center concept" width="100%" />
+<img src="../assets/real/whatsapp-sessions.jpg" alt="WhatsApp Bot product-native session console" width="100%" />
 
 Each WhatsApp identity has an independent lifecycle: start, stop, QR onboarding, readiness, custom identifier, webhook configuration, and recovery settings. Socket events and periodic refresh keep the operator view current.
 
 ## 02 — Outbound reliability monitor
 
-<img src="../assets/demos/whatsapp-02-outbound.svg" alt="WhatsApp Bot outbound reliability monitor concept" width="100%" />
+<img src="../assets/real/whatsapp-outbound.jpg" alt="WhatsApp Bot product-native outbound reliability monitor" width="100%" />
 
 The outbound surface exposes both send attempts and failed-message queues. Operators can see session state, target, retry count, retained payload eligibility, errors, automated recovery, manual retry, and cleanup controls.
 
 ## 03 — API management
 
-<img src="../assets/demos/whatsapp-03-api.svg" alt="WhatsApp Bot API management concept" width="100%" />
+<img src="../assets/real/whatsapp-api.jpg" alt="WhatsApp Bot product-native API management workspace" width="100%" />
 
 Machine access is managed as a product surface. API keys carry granular permissions, allowed session assignments, usage context, audit history, status, edit controls, and explicit revocation.
 
 ## 04 — Security control
 
-<img src="../assets/demos/whatsapp-04-security.svg" alt="WhatsApp Bot network security and audit concept" width="100%" />
+<img src="../assets/real/whatsapp-security.jpg" alt="WhatsApp Bot product-native network security and audit workspace" width="100%" />
 
 Dashboard and API networks have separate allowlists. Authentication, API-key checks, permission scope, rate limiting, login-attempt controls, and audit records create layered protection for both people and integrations.
 

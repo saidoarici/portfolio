@@ -10,7 +10,7 @@
 
 **Finans, lojistik, entegrasyon ve operasyonel otomasyon** kesişiminde iş açısından kritik ürünler tasarlıyor ve geliştiriyorum. Ürün keşfinden UX mimarisine; backend sistemlerinden web ve mobil arayüzlere; güvenlikten dağıtım ve canlı operasyona kadar ürünün tamamında çalışıyorum.
 
-Bu portföy, dört private ticari sistemi uygulanmış ürün mimarilerine dayanan özgün arayüz konseptleriyle anlatır. Görsellerde yalnızca kurgusal örnek veriler kullanılmıştır; üretim ekran görüntüleri, müşteri kayıtları, telefon numaraları, finansal bilgiler ve erişim bilgileri yayımlanmamıştır.
+Bu portföy, dört private ticari sistemi gerçek tasarım sistemleri ve sayfa yapılarından üretilmiş ürüne özgü demo görselleriyle anlatır. Görsellerde yalnızca kurgusal örnek veriler kullanılmıştır; üretim ekran görüntüleri, müşteri kayıtları, telefon numaraları, finansal bilgiler ve erişim bilgileri yayımlanmamıştır.
 
 ## Ürün portföyü
 
@@ -23,7 +23,7 @@ Bu portföy, dört private ticari sistemi uygulanmış ürün mimarilerine dayan
 
 ## Payment Management
 
-<img src="assets/demos/payment-01-operations.svg" alt="Payment Management operasyon merkezi konsepti" width="100%" />
+<img src="assets/real/payment-dashboard.jpg" alt="Payment Management ürüne özgü operasyon paneli" width="100%" />
 
 Ödeme taleplerini, faturaları, onayları, hak sahiplerini, nakit hareketlerini ve muhasebe aktarımını tek bir kontrollü iş akışına dönüştüren kurumsal finans operasyon platformu.
 
@@ -33,7 +33,7 @@ Bu portföy, dört private ticari sistemi uygulanmış ürün mimarilerine dayan
 
 ## Anlık Bakiyem
 
-<img src="assets/demos/anlik-02-reconciliation.svg" alt="Anlık Bakiyem mutabakat çalışma alanı konsepti" width="100%" />
+<img src="assets/real/anlik-reconciliation.jpg" alt="Anlık Bakiyem ürüne özgü mutabakat çalışma alanı" width="100%" />
 
 Banka bakiyelerini ve hareketlerini şirket bazında bir araya getiren; muhasebe süreçlerine yetki kapsamı ve açıklanabilir inceleme araçlarıyla bağlayan hazine ve mutabakat ürünü.
 
@@ -43,7 +43,7 @@ Banka bakiyelerini ve hareketlerini şirket bazında bir araya getiren; muhasebe
 
 ## Rawabet
 
-<img src="assets/demos/rawabet-02-order.svg" alt="Rawabet çok yüzeyli sipariş yaşam döngüsü konsepti" width="100%" />
+<img src="assets/real/rawabet-orders.jpg" alt="Rawabet ürüne özgü sipariş yönetim ekranı" width="100%" />
 
 Partner siparişlerini, operatör planlamasını, filo icrasını, canlı sürücü takibini, faturalamayı ve raporlamayı web ve mobil yüzeylerde birleştiren uçtan uca lojistik ürünü.
 
@@ -53,7 +53,7 @@ Partner siparişlerini, operatör planlamasını, filo icrasını, canlı sürü
 
 ## WhatsApp Bot — bağımsız platform
 
-<img src="assets/demos/whatsapp-01-sessions.svg" alt="WhatsApp Bot çoklu oturum yönetim merkezi konsepti" width="100%" />
+<img src="assets/real/whatsapp-sessions.jpg" alt="WhatsApp Bot ürüne özgü çoklu oturum konsolu" width="100%" />
 
 Rawabet’ın içinde bir modül değil, bağımsız bir kurumsal mesajlaşma geçididir. Çoklu WhatsApp oturumlarını, QR bağlantısını, grup keşfini, kapsamlı API anahtarlarını, gönderim kuyruklarını, kurtarma akışlarını, audit kayıtlarını ve ağ erişim kurallarını yönetir. Rawabet bu platformun olası API istemcilerinden yalnızca biridir.
 

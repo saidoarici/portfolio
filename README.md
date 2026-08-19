@@ -10,7 +10,7 @@
 
 I design and build business-critical products at the intersection of **finance, logistics, integrations, and operational automation**. My work spans product discovery, UX architecture, backend systems, web and mobile interfaces, security, deployment, and production operations.
 
-This portfolio presents four private commercial systems through original interface concepts based on their implemented product architecture. The visuals use fictional sample data; no production screenshots, credentials, customer records, phone numbers, or financial information are published.
+This portfolio presents four private commercial systems through product-native demo renders built from their implemented design systems and page structures. The visuals use fictional sample data; no production screenshots, credentials, customer records, phone numbers, or financial information are published.
 
 ## Product portfolio
 
@@ -23,7 +23,7 @@ This portfolio presents four private commercial systems through original interfa
 
 ## Payment Management
 
-<img src="assets/demos/payment-01-operations.svg" alt="Payment Management operations command center concept" width="100%" />
+<img src="assets/real/payment-dashboard.jpg" alt="Payment Management product-native operations dashboard" width="100%" />
 
 An enterprise payment operations platform that turns requests, invoices, approvals, beneficiaries, cash movements, and accounting hand-offs into one controlled workflow.
 
@@ -33,7 +33,7 @@ An enterprise payment operations platform that turns requests, invoices, approva
 
 ## Anlık Bakiyem
 
-<img src="assets/demos/anlik-02-reconciliation.svg" alt="Anlık Bakiyem reconciliation workspace concept" width="100%" />
+<img src="assets/real/anlik-reconciliation.jpg" alt="Anlık Bakiyem product-native reconciliation workspace" width="100%" />
 
 A multi-company treasury and reconciliation product that consolidates bank balances and transactions, then connects them to accounting workflows with scoped access and explainable review tools.
 
@@ -43,7 +43,7 @@ A multi-company treasury and reconciliation product that consolidates bank balan
 
 ## Rawabet
 
-<img src="assets/demos/rawabet-02-order.svg" alt="Rawabet cross-surface order lifecycle concept" width="100%" />
+<img src="assets/real/rawabet-orders.jpg" alt="Rawabet product-native order management workspace" width="100%" />
 
 An end-to-end logistics product connecting partner orders, operator planning, fleet execution, live driver tracking, billing, and operational reporting across web and mobile surfaces.
 
@@ -53,7 +53,7 @@ An end-to-end logistics product connecting partner orders, operator planning, fl
 
 ## WhatsApp Bot — standalone platform
 
-<img src="assets/demos/whatsapp-01-sessions.svg" alt="WhatsApp Bot multi-session command center concept" width="100%" />
+<img src="assets/real/whatsapp-sessions.jpg" alt="WhatsApp Bot product-native multi-session console" width="100%" />
 
 A standalone enterprise messaging gateway—not a Rawabet module. It manages multiple WhatsApp sessions, QR onboarding, group discovery, scoped API keys, outbound queues, recovery, audit logs, and network controls. Rawabet is one possible API client.
 

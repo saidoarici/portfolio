@@ -4,29 +4,29 @@
 
 An end-to-end logistics platform connecting partner demand, operator planning, driver execution, live location, commercial documents, and operational reporting.
 
-> The interfaces below are original portfolio concepts based on the implemented admin registry, partner portal, driver application, backend services, and product documentation. All orders, parties, locations, and values are fictional sample data.
+> The interfaces below are safe demo renders built from Rawabet's implemented admin design system and page structures. All orders, parties, locations, and values are fictional sample data.
 
 ## 01 — Operations command
 
-<img src="../assets/demos/rawabet-01-operations.svg" alt="Rawabet logistics operations command center concept" width="100%" />
+<img src="../assets/real/rawabet-dashboard.jpg" alt="Rawabet product-native logistics dashboard" width="100%" />
 
 Operators need a shared view of orders, available capacity, active trips, route progress, and service exceptions. The command center prioritizes decisions and risk rather than presenting disconnected module counts.
 
-## 02 — Cross-surface order lifecycle
+## 02 — Order management workspace
 
-<img src="../assets/demos/rawabet-02-order.svg" alt="Rawabet order lifecycle across partner operator and driver surfaces" width="100%" />
+<img src="../assets/real/rawabet-orders.jpg" alt="Rawabet product-native order management workspace" width="100%" />
 
-One order becomes three role-specific experiences: the partner creates and tracks it, the operator prices and assigns it, and the driver accepts work, advances stages, shares location, and uploads proof. The backend remains the shared lifecycle authority.
+The operator workspace exposes status stages, customer context, vehicle requirements, route, sale, purchase, and action controls in one dense table. The same order remains the shared lifecycle authority for partner tracking and driver execution.
 
 ## 03 — Fleet intelligence
 
-<img src="../assets/demos/rawabet-03-fleet.svg" alt="Rawabet live fleet intelligence concept" width="100%" />
+<img src="../assets/real/rawabet-fleet.jpg" alt="Rawabet product-native live fleet intelligence" width="100%" />
 
 Fleet visibility combines map position, route progress, assignment, ETA, and device health. The driver app includes background location behavior and the platform connects real-time socket updates with tracking infrastructure.
 
 ## 04 — Accounting and reporting
 
-<img src="../assets/demos/rawabet-04-accounting.svg" alt="Rawabet accounting and reporting studio concept" width="100%" />
+<img src="../assets/real/rawabet-accounting.jpg" alt="Rawabet product-native accounting and reporting workspace" width="100%" />
 
 Orders do not stop at delivery. Payments, customer invoices, supplier bills, balances, and route-level reporting connect operational execution to commercial outcomes.
 
@@ -83,4 +83,3 @@ Product and system architecture, backend services, admin and portal workflows, m
 - Treating real-time location as an operational system with health and failure states
 - Connecting logistics execution to billing and reporting
 - Building for multilingual, permission-aware operations
-

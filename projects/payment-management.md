@@ -4,29 +4,29 @@
 
 An enterprise finance operations product for turning payment requests, supporting evidence, approvals, and accounting hand-offs into one controlled and traceable workflow.
 
-> The interfaces below are original portfolio concepts based on the implemented routes, templates, workflows, and integrations. All names, identifiers, and amounts are fictional sample data.
+> The interfaces below are safe demo renders built from Payment Management's implemented templates, CSS, page structures, workflows, and integrations. All names, identifiers, and amounts are fictional sample data.
 
 ## 01 — Operations command center
 
-<img src="../assets/demos/payment-01-operations.svg" alt="Payment Management operations command center concept" width="100%" />
+<img src="../assets/real/payment-dashboard.jpg" alt="Payment Management product-native operations dashboard" width="100%" />
 
 The opening view is designed around operational decisions: what is open, where requests are waiting, which items need attention, and what is ready for an accounting system. It replaces a generic dashboard with a queue that exposes ownership, approval stage, urgency, and readiness.
 
 ## 02 — Approval workspace
 
-<img src="../assets/demos/payment-02-approval.svg" alt="Payment Management approval workspace concept" width="100%" />
+<img src="../assets/real/payment-request.jpg" alt="Payment Management product-native payment request form" width="100%" />
 
 A payment request is more than a form. The decision surface combines beneficiary and bank details, invoice references, attachments, OCR context, category, amount, policy checks, approval history, and the next authorized action.
 
 ## 03 — ERP reconciliation
 
-<img src="../assets/demos/payment-03-erp.svg" alt="Payment Management ERP reconciliation concept" width="100%" />
+<img src="../assets/real/payment-erp.jpg" alt="Payment Management product-native ERP reconciliation workspace" width="100%" />
 
 The accounting hand-off makes validation and mapping visible before posting. Odoo and QuickBooks surfaces cover accounts, transactions, balances, entity matching, expense creation, reconciliation, and posting outcomes without hiding exceptions behind automation.
 
 ## 04 — Finance intelligence
 
-<img src="../assets/demos/payment-04-insights.svg" alt="Payment Management finance intelligence concept" width="100%" />
+<img src="../assets/real/payment-reports.jpg" alt="Payment Management product-native reporting workspace" width="100%" />
 
 Reporting moves from static export to investigation: completed-payment exports, grouped summaries, AI-assisted classification, streaming analysis, explorer views, and controlled drill-down into the underlying payment population.
 
@@ -78,4 +78,3 @@ Business workflow analysis, product decisions, data and route design, finance in
 - Designing decision surfaces around evidence and authorization
 - Keeping ERP automation observable and recoverable
 - Creating reporting that supports both overview and investigation
-
