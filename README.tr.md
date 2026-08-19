@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.svg" alt="Muhammed Said Nahhal — Yazılım ve Otomasyon Portföyü" width="100%" />
+  <img src="assets/hero.svg" alt="Muhammed Said Nahhal — Ürün Geliştirme Portföyü" width="100%" />
 </p>
 
 <p align="center">
@@ -8,65 +8,71 @@
   <a href="https://github.com/saidoarici">GitHub</a>
 </p>
 
-Finans, lojistik, ERP entegrasyonları ve operasyon otomasyonu alanlarında üretim ortamında çalışan yazılımlar geliştiriyorum. İş analizi, ürün kararları, sistem mimarisi, API geliştirme, arayüz, test, deployment ve canlı operasyon süreçlerini uçtan uca yönetiyorum.
+**Finans, lojistik, entegrasyon ve operasyonel otomasyon** kesişiminde iş açısından kritik ürünler tasarlıyor ve geliştiriyorum. Ürün keşfinden UX mimarisine; backend sistemlerinden web ve mobil arayüzlere; güvenlikten dağıtım ve canlı operasyona kadar ürünün tamamında çalışıyorum.
 
-<p align="center">
-  <img src="assets/showcase.gif" alt="Payment Management, Anlık Bakiyem ve Rawabet WhatsApp Bot arayüz gösterimi" width="100%" />
-</p>
+Bu portföy, dört private ticari sistemi gerçek tasarım sistemleri ve sayfa yapılarından üretilmiş ürüne özgü demo görselleriyle anlatır. Görsellerde yalnızca kurgusal örnek veriler kullanılmıştır; üretim ekran görüntüleri, müşteri kayıtları, telefon numaraları, finansal bilgiler ve erişim bilgileri yayımlanmamıştır.
 
-> Bu projeler ticari ve özel sistemlerdir. Görseller boş formlar, sandbox verileri veya güvenli yapılandırma ekranlarından hazırlanmıştır. Kaynak kodu, erişim bilgileri, müşteri kayıtları, hesap numaraları ve üretim finans verileri paylaşılmamaktadır.
+## Ürün portföyü
 
-## Öne çıkan sistemler
+| Ürün | Çözdüğü problem | Ürün yüzeyleri | Vaka çalışması |
+|---|---|---|---|
+| **Payment Management** | Ödeme talebi, onay, belge ve ERP aktarımı | Finans çalışma alanı · yönetim · raporlama · entegrasyon | [İncele →](projects/payment-management.md) |
+| **Anlık Bakiyem** | Çoklu banka görünürlüğü ve mutabakat | Hazine web uygulaması · banka bağlantıları · ERP/muhasebe | [İncele →](projects/anlik-bakiyem.md) |
+| **Rawabet** | Uçtan uca lojistik operasyonu | Operatör paneli · partner portalı · sürücü mobil uygulaması | [İncele →](projects/rawabet.md) |
+| **WhatsApp Bot** | Güvenilir, çok oturumlu kurumsal mesajlaşma | Yönetim konsolu · API · kuyruklar · güvenlik | [İncele →](projects/whatsapp-bot.md) |
 
-### Payment Management
+## Payment Management
 
-<img src="assets/payment-management.png" alt="Payment Management ödeme talebi arayüzü" width="100%" />
+<img src="assets/real/payment-dashboard.jpg" alt="Payment Management ürüne özgü operasyon paneli" width="100%" />
 
-Ödeme taleplerini, çok aşamalı onayları, belgeleri, finansal kayıtları ve ERP entegrasyonlarını tek ve kontrollü bir iş akışında birleştiren kurumsal uygulama.
+Ödeme taleplerini, faturaları, onayları, hak sahiplerini, nakit hareketlerini ve muhasebe aktarımını tek bir kontrollü iş akışına dönüştüren kurumsal finans operasyon platformu.
 
-**Odak:** finans otomasyonu · onay akışları · Odoo ve QuickBooks entegrasyonu · belge yönetimi · denetlenebilirlik
+`Onay akışları` · `Fatura/OCR bağlamı` · `Odoo` · `QuickBooks` · `AI raporlama` · `Denetim izi`
 
-[Detaylı inceleme →](projects/payment-management.md)
+[Dört ürün demosunu ve ayrıntılı vaka çalışmasını gör →](projects/payment-management.md)
 
-### Anlık Bakiyem
+## Anlık Bakiyem
 
-<img src="assets/anlik-bakiyem.png" alt="Anlık Bakiyem ERP ve muhasebe entegrasyon ekranı" width="100%" />
+<img src="assets/real/anlik-reconciliation.jpg" alt="Anlık Bakiyem ürüne özgü mutabakat çalışma alanı" width="100%" />
 
-Banka, Odoo ve QuickBooks verilerini birleştiren finansal görünürlük ve mutabakat platformu. Bakiyeleri ve hareketleri standartlaştırır, farkları belirler ve finans ekiplerine güncel bir operasyon görünümü sunar.
+Banka bakiyelerini ve hareketlerini şirket bazında bir araya getiren; muhasebe süreçlerine yetki kapsamı ve açıklanabilir inceleme araçlarıyla bağlayan hazine ve mutabakat ürünü.
 
-**Odak:** banka bağlantıları · ERP mutabakatı · hesap eşleştirme · raporlama · salt-okunur yapay zekâ bağlantıları
+`Çoklu banka` · `Mutabakat` · `İşlem önbelleği` · `Odoo` · `QuickBooks` · `RBAC + audit`
 
-[Detaylı inceleme →](projects/anlik-bakiyem.md)
+[Dört ürün demosunu ve ayrıntılı vaka çalışmasını gör →](projects/anlik-bakiyem.md)
 
-### Rawabet
+## Rawabet
 
-<img src="assets/rawabet-dashboard.png" alt="Rawabet sandbox operasyon paneli" width="100%" />
+<img src="assets/real/rawabet-orders.jpg" alt="Rawabet ürüne özgü sipariş yönetim ekranı" width="100%" />
 
-Sipariş, teklif, taşıma, teslimat, ödeme, fatura, sürücü, araç, rota ve operasyonel raporlama süreçlerini birleştiren uçtan uca lojistik platformu.
+Partner siparişlerini, operatör planlamasını, filo icrasını, canlı sürücü takibini, faturalamayı ve raporlamayı web ve mobil yüzeylerde birleştiren uçtan uca lojistik ürünü.
 
-**Temel teknoloji yığını:** FastAPI · React · MongoDB · Docker · Mapbox · REST API
+`Operasyon paneli` · `Partner portalı` · `Sürücü uygulaması` · `Canlı takip` · `Muhasebe` · `EN/AR akışlar`
 
-[Detaylı inceleme →](projects/rawabet.md)
+[Dört ürün demosunu ve ayrıntılı vaka çalışmasını gör →](projects/rawabet.md)
 
-### Olay Tabanlı WhatsApp Bot
+## WhatsApp Bot — bağımsız platform
 
-<img src="assets/whatsapp-bot.png" alt="Rawabet olay tabanlı WhatsApp bildirim akışı" width="100%" />
+<img src="assets/real/whatsapp-sessions.jpg" alt="WhatsApp Bot ürüne özgü çoklu oturum konsolu" width="100%" />
 
-Rawabet’e bağlı yapılandırılabilir bildirim motoru. Operasyon olaylarına göre iki dilli şablonları seçer, kullanıcı veya yönetici alıcılarını belirler ve sipariş yaşam döngüsü boyunca uygun WhatsApp akışını tetikler.
+Rawabet’ın içinde bir modül değil, bağımsız bir kurumsal mesajlaşma geçididir. Çoklu WhatsApp oturumlarını, QR bağlantısını, grup keşfini, kapsamlı API anahtarlarını, gönderim kuyruklarını, kurtarma akışlarını, audit kayıtlarını ve ağ erişim kurallarını yönetir. Rawabet bu platformun olası API istemcilerinden yalnızca biridir.
 
-**Odak:** olay tabanlı otomasyon · Türkçe/İngilizce/Arapça akışlar · alıcı yönlendirme · operasyon bildirimleri
+`Çoklu oturum` · `Gönderim kurtarma` · `API anahtarları` · `Oturum bazlı izinler` · `IP allowlist` · `Audit logları`
 
-[Detaylı inceleme →](projects/whatsapp-bot.md)
+[Dört ürün demosunu ve ayrıntılı vaka çalışmasını gör →](projects/whatsapp-bot.md)
 
-## Çalışma yaklaşımım
+## Ürün yaşam döngüsündeki katkım
 
-- Finans ve operasyon sorunlarını açık ürün ve sistem gereksinimlerine dönüştürürüm.
-- API, veri modeli, yetkilendirme, denetim kaydı ve entegrasyon mimarilerini tasarlarım.
-- Backend, frontend ve altyapı süreçlerini birlikte geliştirir ve test ederim.
-- Docker, Nginx, Linux, izleme ve yapılandırılmış loglarla canlı sistemleri yönetirim.
-- Yapay zekâ destekli geliştirme araçlarını; mimari, doğrulama ve ürün kararlarını insan kontrolünde tutarak kullanırım.
+- Operasyon ve finans problemlerini ürün gereksinimlerine ve güvenli iş akışlarına dönüştürmek.
+- Servis sınırlarını, API’leri, veri modellerini, yetkileri, denetim izini ve hata kurtarmayı tasarlamak.
+- Gerçek kullanıcı rolleri ve kararları etrafında backend, web ve mobil arayüzler geliştirmek.
+- Banka, ERP, muhasebe, harita, mesajlaşma ve arka plan servislerini entegre etmek.
+- Sistemleri test etmek, container hâline getirmek, yayımlamak, izlemek ve iyileştirmek.
 
-## Temel araçlar
+## Teknoloji seti
 
-`Python` · `FastAPI` · `React` · `MongoDB` · `REST API` · `Docker` · `Nginx` · `Linux` · `Git` · `Odoo` · `QuickBooks` · `Mapbox`
+`Python` · `FastAPI` · `Flask` · `React` · `React Native` · `TypeScript` · `MongoDB` · `SQLAlchemy` · `Redis` · `REST APIs` · `Socket.IO` · `Docker` · `Nginx` · `Linux` · `Odoo` · `QuickBooks` · `Mapbox`
 
+## İletişim
+
+Ürün geliştirme, finans otomasyonu, ERP entegrasyonu, lojistik veya operasyon yazılımları için [LinkedIn](https://www.linkedin.com/in/muhammed-said-nahhal-171195267/) üzerinden iletişime geçebilirsiniz.

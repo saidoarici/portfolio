@@ -1,33 +1,80 @@
 # Payment Management
 
-<img src="../assets/payment-management.png" alt="Payment Management request workflow interface" width="100%" />
+[← Portfolio](../README.md)
 
-## Overview
+An enterprise finance operations product for turning payment requests, supporting evidence, approvals, and accounting hand-offs into one controlled and traceable workflow.
 
-Payment Management centralizes payment requests, supporting documents, approval decisions, and ERP-related financial records. The goal is to replace fragmented email and spreadsheet processes with a controlled, traceable workflow.
+> The interfaces below are safe demo renders built from Payment Management's implemented templates, CSS, page structures, workflows, and integrations. All names, identifiers, and amounts are fictional sample data.
 
-## Product capabilities
+## 01 — Operations command center
 
-- Structured payment and cash request creation
-- Multi-stage approval and urgency handling
-- Beneficiary, bank, invoice, reference, and attachment management
-- Request status, archive, inbox, and reporting views
-- Odoo and QuickBooks integration surfaces
-- Role-based administration, activity logs, and configurable menus
-- Optional WhatsApp group routing for operational notifications
+<img src="../assets/real/payment-dashboard.jpg" alt="Payment Management product-native operations dashboard" width="100%" />
 
-## My contribution
+The opening view is designed around operational decisions: what is open, where requests are waiting, which items need attention, and what is ready for an accounting system. It replaces a generic dashboard with a queue that exposes ownership, approval stage, urgency, and readiness.
 
-Business analysis, product decisions, workflow design, backend and interface development, ERP integration, testing, deployment, and live operations.
+## 02 — Approval workspace
+
+<img src="../assets/real/payment-request.jpg" alt="Payment Management product-native payment request form" width="100%" />
+
+A payment request is more than a form. The decision surface combines beneficiary and bank details, invoice references, attachments, OCR context, category, amount, policy checks, approval history, and the next authorized action.
+
+## 03 — ERP reconciliation
+
+<img src="../assets/real/payment-erp.jpg" alt="Payment Management product-native ERP reconciliation workspace" width="100%" />
+
+The accounting hand-off makes validation and mapping visible before posting. Odoo and QuickBooks surfaces cover accounts, transactions, balances, entity matching, expense creation, reconciliation, and posting outcomes without hiding exceptions behind automation.
+
+## 04 — Finance intelligence
+
+<img src="../assets/real/payment-reports.jpg" alt="Payment Management product-native reporting workspace" width="100%" />
+
+Reporting moves from static export to investigation: completed-payment exports, grouped summaries, AI-assisted classification, streaming analysis, explorer views, and controlled drill-down into the underlying payment population.
+
+## Product surface
+
+### Request and approval operations
+
+- Payment and cash request creation, editing, status tracking, archiving, and deletion
+- Multi-stage decision workflow, urgency, ownership, and approval visibility
+- Beneficiary, client, company, bank, category, and service-type management
+- Attachments, invoice upload, invoice references, instruction templates, and evidence handling
+- QR-based approval and courier/receipt workflows
+
+### Finance and integrations
+
+- Odoo connection, account access, transaction views, and balance reconciliation
+- QuickBooks invoices, customers, entity matching, accounts, expenses, and balance refresh
+- Bank links, IBAN validation, financial records, and controlled external API access
+- Excel conversion, rule management, import/export, and standardized column processing
+
+### Intelligence and control
+
+- Completed-payment reporting and export
+- AI-assisted classification, explorer, streaming analysis, and drill-down
+- Email inbox processing and attachment handling
+- Role-aware administration, event logs, configurable menus, and notifications
+
+## System shape
 
 ```mermaid
 flowchart LR
-  A[Payment request] --> B[Validation]
-  B --> C[Approval workflow]
-  C --> D[Financial record]
-  D --> E[ERP integration]
-  C --> F[Audit trail and notifications]
+  A[Request intake] --> B[Validation and evidence]
+  B --> C[Approval stages]
+  C --> D[Execution-ready payment]
+  D --> E[Odoo / QuickBooks]
+  C --> F[Audit and notifications]
+  D --> G[Reports and AI-assisted analysis]
 ```
 
-> Private commercial system. The screenshot shows an empty form and contains no customer or financial records.
+The current implementation combines a Python/Flask application, SQLAlchemy-backed data, server-rendered operational interfaces, background integrations, and route groups for reporting, messaging, documents, and external access.
 
+## Product engineering contribution
+
+Business workflow analysis, product decisions, data and route design, finance interface development, ERP/accounting integration, automation, testing, deployment, and live operational improvement.
+
+## What this case study demonstrates
+
+- Converting fragmented finance work into an explicit product workflow
+- Designing decision surfaces around evidence and authorization
+- Keeping ERP automation observable and recoverable
+- Creating reporting that supports both overview and investigation

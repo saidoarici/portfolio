@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
-  <title id="title">Muhammed Said Nahhal — Software and Automation Portfolio</title>
-  <desc id="desc">Portfolio banner highlighting financial systems, logistics platforms, ERP integrations, and workflow automation.</desc>
+  <title id="title">Muhammed Said Nahhal — Product Engineering Portfolio</title>
+  <desc id="desc">Portfolio banner for finance, logistics, integration, and automation products.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07142c"/>
@@ -18,8 +18,8 @@
   <circle cx="1060" cy="390" r="220" fill="#63ff9c" opacity=".12" filter="url(#blur)"/>
   <rect x="58" y="54" width="156" height="8" rx="4" fill="url(#accent)"/>
   <text x="58" y="128" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="48" font-weight="750">Muhammed Said Nahhal</text>
-  <text x="58" y="178" fill="#bcd4ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="500">Full-Stack &amp; Automation Developer</text>
-  <text x="58" y="225" fill="#eaf2ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">Financial systems · ERP integrations · Logistics platforms · Workflow automation</text>
+  <text x="58" y="178" fill="#bcd4ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="500">Product Engineer · Full-Stack Developer</text>
+  <text x="58" y="225" fill="#eaf2ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">Finance systems · ERP integrations · Logistics products · Operational automation</text>
 
   <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="650">
     <rect x="58" y="276" width="214" height="48" rx="24" fill="#ffffff" opacity=".11" stroke="#72dcff" stroke-opacity=".5"/>
@@ -39,5 +39,5 @@
     <rect x="108" y="67" width="67" height="27" rx="9" fill="#84ffbd" opacity=".65"/>
     <rect x="108" y="106" width="67" height="23" rx="9" fill="#ffffff" opacity=".15"/>
   </g>
-  <text x="58" y="382" fill="#9fbbe8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Private production systems · Screenshots use safe or sandbox views</text>
+  <text x="58" y="382" fill="#9fbbe8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Private production systems · Original UI concepts · Fictional sample data</text>
 </svg>
