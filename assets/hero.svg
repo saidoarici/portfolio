@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Muhammed Said Nahhal — Software and Automation Portfolio</title>
+  <desc id="desc">Portfolio banner highlighting financial systems, logistics platforms, ERP integrations, and workflow automation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07142c"/>
+      <stop offset="0.52" stop-color="#102d62"/>
+      <stop offset="1" stop-color="#1848b8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#45d8ff"/>
+      <stop offset="1" stop-color="#84ffbd"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="55"/></filter>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1040" cy="70" r="180" fill="#18c8ff" opacity=".17" filter="url(#blur)"/>
+  <circle cx="1060" cy="390" r="220" fill="#63ff9c" opacity=".12" filter="url(#blur)"/>
+  <rect x="58" y="54" width="156" height="8" rx="4" fill="url(#accent)"/>
+  <text x="58" y="128" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="48" font-weight="750">Muhammed Said Nahhal</text>
+  <text x="58" y="178" fill="#bcd4ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="500">Full-Stack &amp; Automation Developer</text>
+  <text x="58" y="225" fill="#eaf2ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">Financial systems · ERP integrations · Logistics platforms · Workflow automation</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="650">
+    <rect x="58" y="276" width="214" height="48" rx="24" fill="#ffffff" opacity=".11" stroke="#72dcff" stroke-opacity=".5"/>
+    <text x="83" y="307" fill="#ffffff">Payment Management</text>
+    <rect x="286" y="276" width="178" height="48" rx="24" fill="#ffffff" opacity=".11" stroke="#72dcff" stroke-opacity=".5"/>
+    <text x="313" y="307" fill="#ffffff">Anlık Bakiyem</text>
+    <rect x="478" y="276" width="126" height="48" rx="24" fill="#ffffff" opacity=".11" stroke="#72dcff" stroke-opacity=".5"/>
+    <text x="506" y="307" fill="#ffffff">Rawabet</text>
+    <rect x="618" y="276" width="170" height="48" rx="24" fill="#ffffff" opacity=".11" stroke="#72dcff" stroke-opacity=".5"/>
+    <text x="644" y="307" fill="#ffffff">WhatsApp Bot</text>
+  </g>
+
+  <g transform="translate(903 130)">
+    <rect width="205" height="165" rx="26" fill="#061126" opacity=".68" stroke="#67dfff" stroke-opacity=".45"/>
+    <rect x="30" y="32" width="145" height="18" rx="9" fill="#45d8ff" opacity=".85"/>
+    <rect x="30" y="67" width="62" height="62" rx="14" fill="#ffffff" opacity=".12"/>
+    <rect x="108" y="67" width="67" height="27" rx="9" fill="#84ffbd" opacity=".65"/>
+    <rect x="108" y="106" width="67" height="23" rx="9" fill="#ffffff" opacity=".15"/>
+  </g>
+  <text x="58" y="382" fill="#9fbbe8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15">Private production systems · Screenshots use safe or sandbox views</text>
+</svg>
